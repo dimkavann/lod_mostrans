@@ -1,28 +1,11 @@
 // Транспорт
-class TrafficHook::vehicle{
-    // структуры
-    public : struct car{
-        int id;
-        float x;
-        float y;
-        float speed;
-    };
-
-    public : struct request{
-        int requested_car_id;
-        TrafficHook::car host_car_data;
-    };
-
-    public : struct response{
-        int host_car_id;
-        bool status;
-    };
-
+class TrafficHook::vehicle : public Logic {
     // ID светофора
     private : int id;
     // Координаты (динамичны)
     private : float x;
     private : float y;
+    private : float angle;
     // Id подключенных устройств
     // Проверяется блокчейном
     private : std::vector <int> connections;
