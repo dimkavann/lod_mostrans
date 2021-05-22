@@ -56,4 +56,9 @@ class TrafficHook::vehicle{
     public : void getConnectResponse(TrafficHook::response){
         this->req_pool.push_back(res_pool); 
     }
+
+    // Функция запуска из вне системы
+    public : void trigger(){}
+
+    
 };

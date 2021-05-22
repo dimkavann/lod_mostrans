@@ -9,6 +9,8 @@
 #include <omp.h>
 #include <sstream>
 #include <utility>
+#include <unistd.h>
+#include "network.cpp"
 
 namespace TrafficHook{
     class infrastructure;
@@ -29,17 +31,17 @@ int main(int argc, char** argv) {
     // Если оно запушено на транспорте 
     if(TYPE == 1){
         TrafficHook::vehicle main_object;
-        // Создаем демона в фоне для получения информации
-        while(1){
-
-        }
     // Если оно запушено на инфраструктуре
     }else if(TYPE == 2){
         TrafficHook::infrastructure main_object;
-        // Создаем демона в фоне для получения информации
-        while(1){
-
-        }
     }
+    
+    // Создаем демона в фоне для получения информации
+    while(1){
+        main_object.trigger();
+        // Ждем секунду
+        sleep(1000);
+    }
+
     return 0;
 }
